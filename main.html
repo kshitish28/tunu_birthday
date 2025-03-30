@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        #name {
+            color: #ffeb3b;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .photo-gallery {
+            margin-bottom: 40px;
+        }
+
+        .photo-gallery h2, .message h2, .countdown h2 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-container img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .message {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .love-note {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .countdown {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-block {
+            background-color: #e91e63;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+
+        .time-block span {
+            display: block;
+        }
+
+        .time-block .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        #openOutput {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            max-width: 200px;
+        }
+
+        #openOutput:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Happy Birthday, <span id="name">SILKY</span>!</h1>
+            <p class="subtitle">To the most amazing girlfriend in the world</p>
+        </header>
+
+        <div class="photo-gallery">
+            <h2>Our Beautiful Memories</h2>
+            <div class="gallery-container" id="galleryContainer">
+                <!-- Photos will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="message">
+            <h2>My Message to You</h2>
+            <p class="love-note">
+                My dearest SILKY,<br><br>
+                On this special day, I want you to know how much you mean to me. 
+                You bring so much joy, love, and happiness into my life every single day. 
+                I'm so grateful to have you by my side.<br><br>
+                Wishing you the most wonderful birthday filled with love, laughter, 
+                and all the things that make you happy. May this year bring you 
+                everything you've been dreaming of and more.<br><br>
+                Forever yours,<br>
+                CHINA
+            </p>
+        </div>
+
+        <div class="countdown">
+            <h2>Until Your Next Birthday</h2>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span id="days">365</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">24</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">60</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">60</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" id="openOutput">Open Special Message</a>
+
+        <footer>
+            <p>Created with love by CHINA &hearts;</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript Code
+        document.addEventListener('DOMContentLoaded', function() {
+            // Photo gallery
+            const galleryContainer = document.getElementById('galleryContainer');
+            const photoPaths = [
+                'images/img1.jpg',
+                'images/img2.jpg',
+                'images/img3.jpg',
+                'images/img4.jpg',
+                'images/img5.jpg'
+            ];
+        
+            photoPaths.forEach(path => {
+                const img = document.createElement('img');
+                img.src = path;
+                img.alt = "Beautiful memory";
+                galleryContainer.appendChild(img);
+            });
+        
+            // Countdown timer
+            function updateCountdown() {
+                const now = new Date();
+                //let nextBirthday = new Date(now.getFullYear(), 3, 11); // April is month index 3
+        
+                if (now > nextBirthday) {
+                    nextBirthday = new Date(now.getFullYear() + 1, 3, 11);
+                }
+        
+                const diff = nextBirthday - now;
+        
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        
+            // Open output link
+            document.getElementById('openOutput').addEventListener('click', function(e) {
+                e.preventDefault();
+        
+                const specialMessage = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Special Message for SILKY</title>
+                        <style>
+                            body {
+                                font-family: 'Dancing Script', cursive;
+                                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                margin: 0;
+                                text-align: center;
+                            }
+                            .message-container {
+                                background-color: white;
+                                padding: 40px;
+                                border-radius: 15px;
+                                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                                max-width: 600px;
+                            }
+                            h1 {
+                                color: #e91e63;
+                                font-size: 2.5rem;
+                            }
+                            p {
+                                font-size: 1.5rem;
+                                line-height: 1.8;
+                            }
+                            .heart {
+                                color: red;
+                                font-size: 3rem;
+                                animation: pulse 1.5s infinite;
+                            }
+                            @keyframes pulse {
+                                0% { transform: scale(1); }
+                                50% { transform: scale(1.3); }
+                                100% { transform: scale(1); }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="message-container">
+                            <h1>To My Dearest SILKY</h1>
+                            <p>
+                                No matter how many birthdays pass,<br>
+                                my love for you will only grow stronger.<br>
+                                You are the most beautiful person I know,<br>
+                                inside and out.
+                            </p>
+                            <p>
+                                Thank you for being you,<br>
+                                and for letting me be part of your life.
+                            </p>
+                            <div class="heart">&hearts;</div>
+                            <p>Forever yours,<br>CHINA</p>
+                        </div>
+                    </body>
+                    </html>
+                `;
+        
+                const newWindow = window.open('', '_blank');
+                newWindow.document.open();
+                newWindow.document.write(specialMessage);
+                newWindow.document.close();
+            });
+        });        
+    </script>
+</body>
+</html>
